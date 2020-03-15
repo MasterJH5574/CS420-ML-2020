@@ -1,5 +1,6 @@
 lr_param = 7e-6
-reg_param = 0.01
+reg_param = 500 # for visualize
+# reg_param = 0.01
 model = LinearRegression2()
 loss_history = model.train(X_train, Y_train, True, lr_param, reg_param, 'L2')
 pred = model.predict(X_test)
@@ -12,6 +13,7 @@ plt.xlabel('Iteration Num')
 plt.ylabel('Loss')
 plt.show()
 
+print("reg =", reg)
 W = model.W
 for digit in range(10):
     w = np.reshape(np.delete(W[digit], -1), (28, -1))
